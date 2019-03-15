@@ -1,18 +1,19 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include <sys/wait.h>
 #include <sys/types.h>
 
-void readFile(FILE* file, int array[], int arraySize);
+void readFile(char* filePath, int array[], int arraySize);
 
 int main(){
-	FILE* file = fopen("data", "r");
+	char* filePath = "data";
 	const int arraySize = 100;
 	int array[arraySize];
 
-	readFile(file, array)
+	readFile(filePath, array, arraySize);
 
 	pid_t pid = fork();
 
@@ -33,10 +34,13 @@ int main(){
 	return 0;
 }
 
-void readFile(FILE* file, int array[], int arraySize)
+void readFile(char* filePath, int array[], int arraySize)
 {
+	FILE* file = fopen(filePath, "r");
 	for (int i = 0; i<arraySize; i++)
 	{
 		array[i] = NULL;
 	}
+
+
 }
