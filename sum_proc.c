@@ -36,11 +36,13 @@ int main(){
 
 void readFile(char* filePath, int array[], int arraySize)
 {
-	FILE* file = fopen(filePath, "r");
 	for (int i = 0; i<arraySize; i++)
 	{
 		array[i] = NULL;
 	}
+	FILE* file = fopen(filePath, "r");
+	char buffer[20];
 
 
+	fclose(file);
 }
